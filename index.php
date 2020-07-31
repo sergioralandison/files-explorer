@@ -15,4 +15,33 @@
   } else {
     $cwd = $_GET['cwd'];
   }
+
+  /*-------------------------------Navigation-------------------------------*/
+
+  echo "<form method='get' id='ch_cwd'></form>"; // Formulaire pour changé de répertoire
+
+  // Afficher le fil d'ariane
+  $breadcrumbs = explode(DIRECTORY_SEPARATOR, $cwd);
+  $path = "";
+  foreach($breadcrumbs as $name){
+    $path .= $name.DIRECTORY_SEPARATOR;
+    if (strstr($path, $start)) {
+      echo "<button type='submit' name='cwd' form='ch_cwd' value='". substr($path, 0, -1) . "'>";
+      echo $name ;
+      echo "</button>";
+    }
+  }
+
+  echo "<br>";
+
+  // Afficher le contenu du répertoire courant et navigation dans les dossiers
+  $content = scandir($cwd);
+  foreach ($content as $file) {
+    if ($file == "." || $file == ".." || $hidden == NULL && $file[0] == "."){
+      echo "";
+    }
+    else {
+      echo "<br><button type='submit' name='cwd' form='ch_cwd' value='".$cwd.DIRECTORY_SEPARATOR.$file."'> ". $file ." </button>";
+    }
+  }
 ?>
