@@ -1,3 +1,10 @@
+<!--Formulaire checkbox pour afficher les fichiers masqués-->
+<form class="" action="index.php" method="GET">
+  <label for="">Afficher les fichiers masqués</label>
+  <input type="checkbox" name="hidden" value="checked">
+  <button type="submit" name="button" value="send">Envoyer</button>
+</form>
+
 <?php
   /*-------------------------------Affichage-------------------------------*/
 
