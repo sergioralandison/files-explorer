@@ -15,9 +15,7 @@ if(!is_dir($start)){
 
 #### Les fichiers masqués
 
-##### Formulaire "checkbox" pour afficher les fichiers masqués
-
-Pour pouvoir exécuter la partie des fichiers masqués, on créer un formulaire :
+Avant tout, on créer un formulaire pour récupérer les données et les traitées.
 
 ```
 <form class="" action="" method="GET">
